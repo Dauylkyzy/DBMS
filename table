@@ -1,0 +1,122 @@
+create table Bookks(
+    book_name varchar(10),
+    book_id number primary key,
+    book_price number, 
+    book_author varchar(20),
+    book_year number(13)
+);
+
+INSERT ALL  
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('To Kill a Mockingbird', 1, 5000, 'Harper Lee', 1960);
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('Anna Karenina ', '2', 5000, 'Harper Lee', 1878);
+INTO Bookks (book_name, book_id, book_price, book_author, book_year) VALUES ('Where the Sidewalk Ends', 3 , 4000 , 'Shel Silverstein' , 1974);
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('Valley of the Dolls', '4', 5000, 'Jacqueline Susann', 1966);
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('The Shining', '5', 7000, 'Stephen King', 1977); 
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('The Little Prince', '6', 6000, 'Antoine de Saint-Exupéry', 1943); 
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('The Fellowship of the Ring', '7', 5000, 'J.R.R. Tolkien', 1954); 
+INTO Bookks (book_name, book_id, book_price, book_anthor, book_year) VALUES ('The Handmaids Tale', '8', 5500, 'Margaret Atwood', 1985); 
+
+
+
+create table Customer(
+    user_name varchar(10),
+    user_id number primary key,
+    user_mobil number, 
+    user_email varchar(20),
+    user_address varchar(13)
+);
+
+INSERT ALL
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Alina' , 1 , 90-245-8519 , 'alina@al.com' , 'Shieli 1' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Amina' , 2 , 90-255-5182 , 'amina@al.com' , 'Shieli 2' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Rauza' , 3 , 90-167-2791 , 'rauza@al.com' , 'Shieli 3' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Aruza' , 4 , 90-212-6126 , 'aruza@al.com' , 'Shieli 4' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Aidana' , 5 , 90-243-6201 , 'aidana@al.com' , 'Shieli 5' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Sara' , 6 , 90-187-2169 , 'sara@al.com' , 'Shieli 6' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Daryn' , 7 , 90-149-2168 , 'daryn@al.com' , 'Shieli 7' );
+INTO Customer (user_name , user_id , user_mobil , user_email , user_address) VALUES ('Maksat' , 8 , 90-287-9026 , 'maksat@al.com' , 'Shieli 8' );
+
+
+
+
+create table Ordering(
+    ord_book varchar(10),
+    ord_date number,
+    ord_id number Primary key, 
+    ord_amount varchar(20),
+    ord_address varchar(13)
+);
+
+INSERT ALL
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('The Handmaids Tale' , 11-04-23 , 10 , 5500 , 'Shieli 4');
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('The Shining' , 15-04-23 , 11 , 7000 , 'Shieli 3');
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('Valley of the Dolls' , 16-04-23 , 12 , 5500 , 'Shieli 6');
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('The Fellowship of the Ring' , 20-04-23 , 13 , 5000 , 'Shieli 8');
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('To Kill a Mockingbird' , 23-04-23 , 11 , 5000 , 'Shieli 5');
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('Anna Karenina' , 24-04-23 , 11 , 5000 , 'Shieli 1');
+INTO Ordering (ord_book , ord_date , ord_id , ord_amount , ord_address) VALUES ('Where the Sidewalk Ends' , 21-04-23 , 11 , 4000 , 'Shieli 7');
+
+
+
+CREATE TABLE Publisher(
+    pub_id number Primary key,
+    pub_name varchar(20)
+);
+
+INSERT ALL
+INTO Publisher (pub_id , pub_name ) VALUES (21 , 'Otbasi hrestamatiasy');
+INTO Publisher (pub_id , pub_name ) VALUES (22 , 'Mektep');
+INTO Publisher (pub_id , pub_name ) VALUES (23 , 'Arman');
+INTO Publisher (pub_id , pub_name ) VALUES (24 , 'Aruna');
+INTO Publisher (pub_id , pub_name ) VALUES (25 , 'Atamura');
+INTO Publisher (pub_id , pub_name ) VALUES (26 , 'Oner');
+INTO Publisher (pub_id , pub_name ) VALUES (27 , 'lem');
+
+
+Create table Discount(
+    book_nam varchar(10),
+    book_id number Primary key,
+    cust_name varchar(15)
+);
+
+
+INSERT ALL
+INTO Discount (book_nam , book_id , cust_name) VALUES ('The Shining' , 5 , 'Sara');
+INTO Discount (book_nam , book_id , cust_name) VALUES ('The Handmaids Tale' , 8 , 'Amina');
+INTO Discount (book_nam , book_id , cust_name) VALUES ('Anna Karenina' , 2 , 'Alina');
+INTO Discount (book_nam , book_id , cust_name) VALUES ('The Little Prince' , 6 , 'Daryn');
+INTO Discount (book_nam , book_id , cust_name) VALUES ('The Fellowship of the Ring' , 7 , 'Aruza');
+INTO Discount (book_nam , book_id , cust_name) VALUES ('Valley of the Dolls' , 4 , 'Maksat');
+INTO Discount (book_nam , book_id , cust_name) VALUES ('To Kill a Mockingbird' , 1 , 'Aidana');
+
+
+Create table Employees(
+    emp_name varchar(10),
+    emp_id number;
+    FOREIGN KEY Discount REFERENCES Discount(book_id) 
+);
+
+INSERT ALL
+INTO Employees (emp_name , emp_id) VALUES ('Amina' , 31);
+INTO Employees (emp_name , emp_id) VALUES ('Aray' ,  32);
+INTO Employees (emp_name , emp_id) VALUES ('Shugula' , 33);
+INTO Employees (emp_name , emp_id) VALUES ('Ernar' , 34);
+INTO Employees (emp_name , emp_id) VALUES ('Nuray' , 35);
+INTO Employees (emp_name , emp_id) VALUES ('Sabina' , 36);
+INTO Employees (emp_name , emp_id) VALUES ('Uldana' , 37);
+
+
+Create table Receipts(
+    rec_id number Primary key,
+    rec_number number
+);
+
+INSERT ALL
+INTO Receipts (rec_id , rec_number) VALUES (11 , 311);
+INTO Receipts (rec_id , rec_number) VALUES (12 , 313);
+INTO Receipts (rec_id , rec_number) VALUES (13 , 314);
+INTO Receipts (rec_id , rec_number) VALUES (14 , 315);
+INTO Receipts (rec_id , rec_number) VALUES (15 , 316);
+INTO Receipts (rec_id , rec_number) VALUES (16 , 317);
+INTO Receipts (rec_id , rec_number) VALUES (17 , 318);
+INTO Receipts (rec_id , rec_number) VALUES (18 , 319);
