@@ -1,1 +1,12 @@
-пааднг
+CREATE OR REPLACE FUNCTION count_books RETURN NUMBER
+IS
+  row_count NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_count FROM Books;
+  RETURN row_count;
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
+    RETURN -1; 
+END;
+/
