@@ -1,0 +1,39 @@
+1. Group Bookks by year
+
+CREATE OR REPLACE PROCEDURE sort
+IS
+BEGIN
+  FOR bookks IN (
+    SELECT year, SUM(price) book_price
+    FROM bookks
+    GROUP BY genre 
+    )LOOP
+        DBMS_OUTPUT.PUT_LINE('year: ' || book_year.year || ', Total Price: ' || bookks.book_price);
+    END LOOP;
+END;
+
+begin
+  sort;
+end;
+
+
+
+
+2. Group Ordering by book
+
+CREATE OR REPLACE PROCEDURE list
+IS
+BEGIN
+  FOR Ordering IN (
+    SELECT i.book_id, b.title, SUM(i.quantity) total_quantity, SUM(i.sell_price - i.purchase_price) total_profit
+    FROM Ordering i
+    JOIN bookks b ON i.book_id = b.book_id
+    GROUP BY i.book_id, b.title
+    ) LOOP
+      DBMS_OUTPUT.PUT_LINE('Bookks: ' || r_inventory.title || ', Total Quantity: ' || r_inventory.total_quantity || ', Total Profit: ' || r_inventory.total_profit);
+    END LOOP;
+END;
+
+begin
+  list;
+end;
