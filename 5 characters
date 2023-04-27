@@ -1,1 +1,15 @@
-мрлдф
+CREATE OR REPLACE TRIGGER check_title_length
+BEFORE INSERT ON Ordering
+DECLARE
+  title_length NUMBER;
+  invalid_title EXCEPTION;
+BEGIN
+  SELECT LENGTH(ord_book) INTO title_length FROM DUAL;
+  IF title_length < 5 THEN
+    RAISE invalid_title;
+  END IF;
+EXCEPTION
+  WHEN invalid_title THEN
+    DBMS_OUTPUT.PUT_LINE('Error: Title must be at least 5 characters long');
+END;
+/
