@@ -1,0 +1,56 @@
+1. Update the price
+   Updates rows in the bookks table
+
+CREATE OR REPLACE PROCEDURE reducing AS
+  i NUMBER;
+BEGIN
+  UPDATE bookks
+  SET book_price = book_price * 0.9
+  WHERE ord_amount > 10;
+  i := SQL%ROWCOUNT;
+  DBMS_OUTPUT.PUT_LINE('Number of rows updated: ' || i);
+END;
+/
+
+BEGIN 
+    reducing;
+END;
+
+
+2. Delete cheap books from the bookks table. 
+   Deletes rows from the bookks table where the ord_amount is less than 5
+
+CREATE OR REPLACE PROCEDURE cheapo AS
+  i NUMBER;
+BEGIN
+  DELETE FROM bookks
+  WHERE ord_amount < 5;
+  i := SQL%ROWCOUNT;
+  DBMS_OUTPUT.PUT_LINE('Number of rows deleted: ' || i);
+END;
+/
+
+BEGIN 
+    cheapo;
+END;
+
+
+
+3. Inserts new rows into the books table 
+
+
+CREATE OR REPLACE PROCEDURE adding AS
+  i NUMBER;
+BEGIN
+  INSERT INTO bookks (book_name, book_id, book_price, book_anthor, book_year, Genre)
+  VALUES ('To Kill a Mockingbird', 1, 5000, 'Harper Lee', 1960, 'fables');
+  INSERT INTO bookks (book_name, book_id, book_price, book_anthor, book_year, Genre)
+  VALUES ('Anna Karenina ', '2', 5000, 'Harper Lee', 1878, 'psychology');
+  INSERT INTO bookks (book_name, book_id, book_price, book_anthor, book_year, Genre)
+  VALUES ('The Little Prince', '6', 6000, 'Antoine de Saint-Exupéry', 1943, 'psychology');
+  
+  i := SQL%ROWCOUNT;
+    
+  DBMS_OUTPUT.PUT_LINE('Number of rows inserted: ' || (i+1));
+END;
+/
